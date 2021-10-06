@@ -19,23 +19,25 @@
   <body>
     <div id="login_section">
       <form action="" method="POST">
+        <% if(messages.error){ %>
+        <h6 class="text-light bg-secondary p-1"><%=messages.error%></h6>
+        <% } %>
         <h1 class="display-1 mb-5 text-light">Login</h1>
         <div class="mb-3">
-          <label for="formGroupExampleInput" class="form-label text-light"
-            >Username:</label
-          >
+          <label for="email" class="form-label text-light">Email:</label>
           <input
+            name="email"
             type="text"
+            value="<%=messages.email%>"
             class="form-control strong"
             id="formGroupExampleInput"
             placeholder="Enter your Username"
           />
         </div>
         <div class="mb-3">
-          <label for="formGroupExampleInput2" class="form-label text-light"
-            >Password:</label
-          >
+          <label for="password" class="form-label text-light">Password:</label>
           <input
+            name="password"
             type="password"
             class="form-control"
             id="formGroupExampleInput2"
@@ -48,9 +50,7 @@
         <p class="text-light">
           If not registered! Click on
           <span
-            ><a href="/register" class="links text-primary"
-              >Register</a
-            ></span
+            ><a href="/register" class="links text-primary">Register</a></span
           >
         </p>
       </form>
