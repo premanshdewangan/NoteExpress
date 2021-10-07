@@ -53,19 +53,21 @@
                 class="dropdown-menu"
                 aria-labelledby="navbarDropdownMenuLink"
               >
-              <form id="logout" action="/logout" method="POST">
-                <a href="#" onclick="document.getElementById('logout').submit()"
-                  >Logout</a
-                >
-              </form>
+                <form id="logout" action="/logout" method="POST">
+                  <a
+                    href="#"
+                    onclick="document.getElementById('logout').submit()"
+                    >Logout</a
+                  >
+                </form>
               </div>
             </li>
           </ul>
         </div>
       </nav>
     </div>
-    <h1 class="display-4 mx-4 my-3">Welcome <%=name%> ! </h1>
-    <hr class="m-4">
+    <h1 class="display-4 mx-4 my-3">Welcome <%=name%> !</h1>
+    <hr class="m-4" />
     <div id="cardSection" class="d-flex flex-wrap mt-5 w-100">
       <div class="card w-25 h-25 mx-5 my-2">
         <div class="card-body">
@@ -78,7 +80,8 @@
           <h5 class="card-title">Create Note</h5>
           <a href="/createNote" class="btn btn-primary">click here</a>
         </div>
-      </div><div class="card w-25 h-25 mx-5 my-2">
+      </div>
+      <div class="card w-25 h-25 mx-5 my-2">
         <div class="card-body">
           <h5 class="card-title">Search Notes</h5>
           <a href="/SearchNotes" class="btn btn-primary">click here</a>

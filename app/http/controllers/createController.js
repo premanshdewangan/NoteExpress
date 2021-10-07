@@ -2,7 +2,6 @@ const path = require("path");
 const Note = require("../../models/note");
 const User = require("../../models/user");
 
-
 // Factory method:
 function createController() {
   return {
@@ -20,6 +19,7 @@ function createController() {
 
     postIndex: function (req, res) {
       const { title, desc } = req.body;
+      console.log(req.body);
       if (req.body.title === "" || req.body.desc === "") {
         /*
           req.flash('msg', "FAILED !! Please fill both the fields");
