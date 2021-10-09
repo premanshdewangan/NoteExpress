@@ -1,4 +1,7 @@
 const path = require("path");
+const User = require("../../models/user");
+const passport = require("passport");
+
 
 // Factory method:
 function homeController() {
@@ -10,7 +13,16 @@ function homeController() {
     },
 
     dashboard: function (req, res) {
-      res.render("users/dashboard");
+      // for extracting the logged in username:
+      objId = req.session.passport.user;
+      User.findOne({ _id: objId })
+        .then((data) => {
+          console.log(data.name);
+          return data.name;
+        })
+        .then((name) => {
+          res.render("users/dashboard", { name: name });
+        });
     },
   };
 }

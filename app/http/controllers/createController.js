@@ -19,7 +19,6 @@ function createController() {
 
     postIndex: function (req, res) {
       const { title, desc } = req.body;
-      console.log(req.body);
       if (req.body.title === "" || req.body.desc === "") {
         /*
           req.flash('msg', "FAILED !! Please fill both the fields");
@@ -41,7 +40,7 @@ function createController() {
         */
 
         const note = new Note({
-          title: title,
+          title: title.trim(),
           description: desc,
           user: req.session.passport.user,
         });

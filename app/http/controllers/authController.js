@@ -36,6 +36,7 @@ function authController() {
 
           // for extracting the logged in username:
           objId = req.session.passport.user;
+          console.log(typeof(objId));
           User.findOne({ _id: objId })
             .then((data) => {
               console.log(data.name);
@@ -44,6 +45,7 @@ function authController() {
             .then((name) => {
               res.render("users/dashboard", { name });
             });
+
         });
       })(req, res, next);
     },
