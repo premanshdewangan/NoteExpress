@@ -9,7 +9,7 @@ function createController() {
       objId = req.session.passport.user;
       User.findOne({ _id: objId })
         .then((data) => {
-          console.log(data.name);
+          // console.log(data.name);
           return data.name;
         })
         .then((name) => {
@@ -29,7 +29,7 @@ function createController() {
           msg: "FAILED !! Please fill both the fields",
           color: "danger",
         };
-        console.log(req.body);
+        // console.log(req.body);
         res.send(x);
       } else {
         /*

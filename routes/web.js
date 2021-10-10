@@ -19,6 +19,8 @@ function initRoutes(app) {
   app.post('/logout', authController().logout);
 
   app.get("/showNotes", userCheck, showNotesController().index);
+  app.post("/deleteNote", showNotesController().deleteNote);
+
   app.get("/searchNotes", userCheck, searchController().index);
   app.post("/searchNote", searchController().postSearch);
   app.get("/createNote", userCheck, createController().index);

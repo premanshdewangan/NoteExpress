@@ -36,10 +36,10 @@ function authController() {
 
           // for extracting the logged in username:
           objId = req.session.passport.user;
-          console.log(typeof(objId));
+          // console.log(typeof(objId));
           User.findOne({ _id: objId })
             .then((data) => {
-              console.log(data.name);
+              // console.log(data.name);
               return data.name;
             })
             .then((name) => {
@@ -60,7 +60,7 @@ function authController() {
 
       // validate request:
       if (!name || !email || !password || !confirmPassword) {
-        console.log(req.body);
+        // console.log(req.body);
         req.flash("error", "All fields are required !!");
         req.flash("name", name);
         req.flash("email", email);

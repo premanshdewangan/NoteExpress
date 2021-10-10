@@ -19,11 +19,21 @@ function showNotesController() {
           userId = req.session.passport.user;
 
           Note.find({ user: userId }).then((allNotes) => {
-            console.log(allNotes);
-            res.render("users/showNotes", { allNotes: allNotes, name: name });
+            // console.log(allNotes);
+            res.render("users/showNotes", { allNotes: allNotes, name: name, count : 0 });
           });
         });
     },
+
+    deleteNote : function(req, res){
+        console.log(req.body.id);
+        noteId = req.body.id;
+        Note.deleteOne({ _id: noteId }, function (err) {
+          if(err) console.log(err);
+          console.log("Successful deletion");
+          return res.redirect('/showNotes');
+        });
+    }
   };
 }
 
