@@ -20,6 +20,7 @@ function initRoutes(app) {
 
   app.get("/showNotes", userCheck, showNotesController().index);
   app.post("/deleteNote", showNotesController().deleteNote);
+  app.post("/editNote", showNotesController().editNote);
 
   app.get("/searchNotes", userCheck, searchController().index);
   app.post("/searchNote", searchController().postSearch);

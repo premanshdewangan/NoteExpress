@@ -66,17 +66,18 @@
         </div>
       </nav>
     </div>
+    <div id="alert_area"></div>
     <h1 class="ml-4 mt-4">All Notes:</h1>
     <hr class="mx-3" />
     <div id="cardSection" class="d-flex flex-wrap mt-5 w-100">
       <% allNotes.forEach((note)=>{ %>
       <!-- Any HTML which you want gto display one by one -->
-      <div class="card w-25 mx-5 my-2">
+      <div class="card w-25 mx-5 my-2" id="card<%=count%>">
         <div class="card-body">
-          <h5 class="card-title"><%=note.title%></h5>
-          <p class="card-text"><%=note.description%></p>
+          <h5 class="card-title" style="z-index: 10; "><%=note.title%></h5>
+          <p class="card-text"  style="z-index: 10; "><%=note.description%></p>
           <div id="buttons<%=count%>" style="display: flex; flex-direction: row">
-            <form id="deleteNote<%=count%>" action="/deleteNote" method="POST">
+            <form id="deleteNote<%=count%>" name="deleteNote<%=count%>" action="/deleteNote" method="POST">
               <input
                 name="id"
                 type="text"
@@ -90,7 +91,7 @@
                 >Delete</a
               >
             </form>
-            <a href="#" class="btn btn-primary px-4 mx-3">Edit</a>
+            <a href="#" id="editBtn<%=count%>" class="btn btn-primary px-4 mx-3" onclick="getBtnId(this.id)">Edit</a>
           </div>
         </div>
       </div>
@@ -99,6 +100,7 @@
     </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/deleteNEdit.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
       integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
